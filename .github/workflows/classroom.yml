@@ -1,7 +1,6 @@
 name: Autograding Tests
 'on':
 - push
-- repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -20,9 +19,3 @@ jobs:
         timeout: 10
         max-score: 250
         setup-command: pip install pytest
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        TEST_SESSION4_RESULTS: "${{steps.test_session6.outputs.result}}"
-      with:
-        runners: test_session6
